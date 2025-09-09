@@ -490,28 +490,32 @@
   </script>
 
   <script>
-  document.querySelector('.feedback-form form').addEventListener('submit', function (e) {
-    e.preventDefault(); // Prevent default redirect
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('.contact-form form');
+    if (!form) return;
 
-    const form = e.target;
-    const formData = new FormData(form);
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // Stop default redirect
 
-    fetch(form.action, {
-      method: 'POST',
-      body: formData,
-      mode: 'no-cors'
-    }).then(() => {
-      document.querySelector('.feedback-form').innerHTML = `
-        <h2>Thank You</h2>
-        <p>Your feedback has been received. We will contact you as soon as possible.</p>
-      `;
-    }).catch(() => {
-      alert("Something went wrong. Please try again.");
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      }).then(() => {
+        document.querySelector('.contact-form').innerHTML = `
+          <h2>Request Received</h2>
+          <p>Your deployment request has been submitted. The gears of growth begin turning.</p>
+        `;
+      }).catch(() => {
+        alert("Something went wrong. Please try again.");
+      });
     });
   });
 </script>
 
-  
 </body>
 </html>
+
 
