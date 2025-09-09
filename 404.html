@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deployment Interrupted — Elvariente</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Lora:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- Particles.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    :root {
+      /* New Color Scheme */
+      --primary-accent: #6E0F1F; /* Velvet Burgundy */
+      --secondary-accent: #B22222; /* Light Maroon for particles */
+      --gold-bg-text: #D4AF37; /* Imperial Gold */
+      --text-on-light: #0B0B0B; /* Obsidian Black */
+      --text-on-dark: #FDFDFD; /* Pearl White */
+      --paper-bg: #FDFDFD; /* Pearl White */
+      --dark-bg: #0B0B0B; /* Obsidian Black */
+      --neutral-divider: #837060; /* Smoky Quartz */
+      --glass-light: rgba(247, 231, 206, 0.25); /* Champagne Mist Tint */
+      --glass-dark: rgba(11, 11, 11, 0.25); /* Obsidian Tint */
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--paper-bg);
+      color: var(--text-on-light);
+      font-family: 'Lora', serif;
+      line-height: 1.8;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative; /* For particle z-index */
+    }
+
+    h1, h2, h3, .tag {
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: 0.5px;
+    }
+
+    .glass {
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--neutral-divider);
+    }
+
+    header {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      padding: 0 4rem;
+      border-bottom: 1px solid var(--neutral-divider);
+      background: var(--glass-light); /* Light Glass Header */
+      position: relative;
+      z-index: 10; /* Above particles */
+    }
+
+    header .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-accent);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 8rem;
+      text-align: center;
+      position: relative;
+      z-index: 10; /* Above particles */
+    }
+
+    .error-code {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 6rem;
+      color: var(--primary-accent);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--text-on-light);
+    }
+
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: var(--primary-accent);
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .button {
+      background: var(--primary-accent);
+      color: var(--paper-bg);
+      border: none;
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(110, 15, 31, 0.2); /* Burgundy shadow */
+    }
+
+    .easter-egg {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: var(--neutral-divider);
+    }
+
+    /* Particles */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0; /* Behind content */
+    }
+
+    footer {
+      background: var(--glass-light); /* Light Glass Footer */
+      padding: 3rem 4rem;
+      text-align: center;
+      font-family: 'Lora', serif;
+      font-size: 0.9rem;
+      color: var(--text-on-light);
+      border-top: 1px solid var(--neutral-divider);
+      position: relative;
+      z-index: 10; /* Above particles */
+    }
+
+    footer .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    footer .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary-accent);
+    }
+
+    footer .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    footer .social-icons svg {
+      width: 20px;
+      fill: var(--primary-accent);
+      transition: fill 0.3s ease;
+    }
+
+    footer .social-icons svg:hover {
+      fill: var(--neutral-divider);
+    }
+
+    footer .quick-links a {
+      color: var(--text-on-light);
+      margin: 0 0.5rem;
+      text-decoration: none;
+    }
+
+    footer .quick-links a:hover {
+        color: var(--primary-accent);
+    }
+
+    footer .newsletter input {
+      padding: 0.5rem 1rem;
+      background: transparent;
+      border: 1px solid var(--neutral-divider);
+      border-radius: 4px;
+      color: var(--text-on-light);
+    }
+
+    footer .newsletter button {
+      margin-left: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--primary-accent);
+      color: var(--paper-bg);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    footer .copyright {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
+     <!-- Particles.js CDN (Place this in <head> if not already present) -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  <!-- Header -->
+  <header class="glass">
+    <nav style="display: flex; align-items: center; justify-content: space-between; height: 60px; padding: 0 4rem; width: 100%;">
+      <div class="logo" style="font-size: 1.5rem; font-weight: 700; color: var(--primary-accent);">ELVARIENTE</div>
+      <div class="nav-links" style="display: flex; gap: 1.5rem;">
+        <a href="/" style="color: var(--text-on-light); text-decoration: none;">Home</a>
+        <a href="/about/" style="color: var(--text-on-light); text-decoration: none;">About</a>
+        <a href="/services/" style="color: var(--text-on-light); text-decoration: none;">Services</a>
+        <a href="/case-studies/" style="color: var(--text-on-light); text-decoration: none;">Case Studies</a>
+        <a href="/lab/" style="color: var(--text-on-light); text-decoration: none;">Lab</a>
+        <a href="/contact/" style="color: var(--text-on-light); text-decoration: none;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="error-code">404</div>
+    <h1 class="section-title">Deployment Interrupted</h1>
+    <p class="section-subtitle">The requested growth pathway could not be located. This may indicate a strategic misalignment or an opportunity for first-mover advantage.</p>
+    <a href="/" class="button">Return to Command Center</a>
+    
+    <p class="easter-egg">Hint: First-mover operators know the secret terminal access sequence.<br>Try Ctrl+Shift+L</p>
+  </main>
+
+  <!-- Footer -->
+  <footer class="glass" style="background: var(--glass-light); backdrop-filter: blur(6px); border-top: 1px solid var(--neutral-divider); padding: 3rem 2rem; margin-top: 6rem; position: relative; z-index: 10; color: var(--text-on-light); font-family: 'Lora', serif; font-size: 0.9rem;">
+    <div class="container">
+      <div class="row" style="display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto;">
+        <!-- Brand Column -->
+        <div class="col-md-3" style="flex: 0 0 25%; max-width: 25%;">
+          <div class="logo" style="font-size: 1.5rem; font-weight: 700; color: var(--primary-accent); margin-bottom: 1rem;">ELVARIENTE</div>
+          <p style="margin-bottom: 1rem;">
+            The First-Mover Growth Architect. Deploying Tomorrow's Tech Today.
+          </p>
+        </div>
+
+        <!-- Pages Column -->
+        <div class="col-md-2" style="flex: 0 0 16.666667%; max-width: 16.666667%;">
+          <h6 class="text-uppercase mb-4 font-weight-bold" style="font-family: 'Cormorant Garamond', serif; letter-spacing: 0.5px; margin-bottom: 1rem;">Pages</h6>
+          <ul style="list-style-type: none; padding: 0;">
+            <li><a href="/" class="text-white" style="color: var(--text-on-light) !important; text-decoration: none;">Home</a></li>
+            <li><a href="/about/" class="text-white" style="color: var(--text-on-light) !important; text-decoration: none;">About</a></li>
+            <li><a href="/services/" class="text-white" style="color: var(--text-on-light) !important; text-decoration: none;">Services</a></li>
+            <li><a href="/case-studies/" class="text-white" style="color: var(--text-on-light) !important; text-decoration: none;">Case Studies</a></li>
+            <li><a href="/lab/" class="text-white" style="color: var(--text-on-light) !important; text-decoration: none;">Lab</a></li>
+          </ul>
+        </div>
+
+        <!-- Support & Alternatives Column -->
+        <div class="col-md-2" style="flex: 0 0 16.666667%; max-width: 16.666667%;">
+          <h6 class="text-uppercase mb-4 font-weight-bold" style="font-family: 'Cormorant Garamond', serif; letter-spacing: 0.5px; margin-bottom: 1rem;">Support</h6>
+          <ul style="list-style-type: none; padding: 0;">
+            <li><a href="privacy-policy/" class="text-white" style="color: var(--text-on-light) !important; text-decoration: none;">Privacy Policy</a></li>
+            <li><a href="terms-of-service/" class="text-white" style="color: var(--text-on-light) !important; text-decoration: none;">Terms of Service</a></li>
+            <li><a href="feedback/" class="text-white" style="color: var(--text-on-light) !important; text-decoration: none;">Feedback</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Column -->
+        <div class="col-md-2" style="flex: 0 0 16.666667%; max-width: 16.666667%;">
+          <h6 class="text-uppercase mb-4 font-weight-bold" style="font-family: 'Cormorant Garamond', serif; letter-spacing: 0.5px; margin-bottom: 1rem;">Contact</h6>
+          <p style="margin-bottom: 0.5rem;"><a href="mailto:contact@elvariente.com" class="text-white" style="color: var(--text-on-light) !important; text-decoration: none;">contact@elvariente.com</a></p>
+          <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+            <!-- Real Social Media Logos -->
+            <a href="https://www.linkedin.com/in/elvariente" target="_blank" rel="noopener">
+            <img src="logos/linkedin.svg" alt="LinkedIn" width="20" height="20">
+            </a>
+            <a href="https://twitter.com/elvariente" target="_blank" rel="noopener">
+            <img src="logos/twitter.svg" alt="Twitter" width="20" height="20">
+            </a>
+            <a href="https://instagram.com/elvariente" target="_blank" rel="noopener">
+            <img src="logos/instagram.svg" alt="GitHub" width="20" height="20">
+            </a>
+            <a href="https://tiktok.com/@elvariente" target="_blank" rel="noopener">
+            <img src="logos/tiktok.svg" alt="GitHub" width="20" height="20">
+            </a>
+            <a href="https://github.com/elvariente" target="_blank" rel="noopener">
+            <img src="logos/github.svg" alt="GitHub" width="20" height="20">
+            </a>
+            <a href="https://www.facebook.com/elvariente" target="_blank" rel="noopener">
+            <img src="logos/facebook.svg" alt="GitHub" width="20" height="20">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright - Positioned at the very bottom of the page -->
+    <div class="text-center p-3" style="background-color: rgba(131, 112, 96, 0.1); border-top: 1px solid var(--neutral-divider); margin-top: 2rem; padding: 1rem; color: var(--text-on-light); font-size: 0.85rem;">
+      © 2025 Elvariente. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Particles Config -->
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 60 },
+        color: { value: "#B22222" }, /* Light Maroon */
+        shape: { type: "circle" },
+        opacity: { value: 0.2 },
+        size: { value: 3 },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: "none",
+          random: true,
+          straight: false,
+          out_mode: "out",
+          bounce: false
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        }
+      }
+    });
+
+    // Easter egg hint
+    document.addEventListener("keydown", (e) => {
+      if (e.ctrlKey && e.shiftKey && e.key === "L") {
+        window.location.href = "/console/";
+      }
+    });
+  </script>
+
+</body>
+</html>
