@@ -65,7 +65,7 @@
       height: 80px;
       display: flex;
       align-items: center;
-      padding: 0 1rem; /* Reduced padding for mobile */
+      padding: 0 4rem;
       z-index: 1000;
       transition: height 0.3s ease, background-color 0.3s ease;
       background: var(--glass-light); /* Light Glass */
@@ -88,26 +88,26 @@
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      padding: 0 1rem; /* Reduced padding for mobile */
+      padding: 0 8rem;
       position: relative;
       z-index: 10;
       background-color: var(--paper-bg); /* Paper Background */
     }
 
     .hero h1 {
-      font-size: 2.5rem; /* Adjusted for mobile */
+      font-size: 3.5rem;
       margin-bottom: 1rem;
       color: var(--text-on-light);
     }
 
     .hero .tagline {
-      font-size: 1.2rem; /* Adjusted for mobile */
+      font-size: 1.4rem;
       color: var(--primary-accent);
-      margin-bottom: 1.5rem; /* Reduced margin */
+      margin-bottom: 2rem;
     }
 
     .hero p {
-        max-width: 100%; /* Full width on mobile */
+        max-width: 700px;
         margin-bottom: 1.5rem;
     }
 
@@ -115,14 +115,13 @@
       background: var(--primary-accent);
       color: var(--paper-bg);
       border: none;
-      padding: 12px 24px; /* Adjusted padding */
+      padding: 16px 36px;
       border-radius: 4px;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.3s ease;
       text-decoration: none;
       display: inline-block;
-      font-size: 1rem; /* Adjusted font size */
     }
 
     .button:hover {
@@ -132,39 +131,39 @@
 
     /* Main Content Sections */
     .content-section {
-        padding: 3rem 1rem; /* Reduced padding for mobile */
+        padding: 5rem 8rem;
         background-color: var(--paper-bg); /* Paper */
     }
 
     .content-section h2 {
-        font-size: 1.8rem; /* Adjusted for mobile */
-        margin-bottom: 1rem; /* Reduced margin */
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
         color: var(--text-on-light);
     }
 
     .content-section .subtitle {
         color: var(--primary-accent);
-        margin-bottom: 1.5rem; /* Reduced margin */
-        font-size: 1rem; /* Adjusted font size */
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
     }
 
     .content-grid {
         display: grid;
-        grid-template-columns: 1fr; /* Single column on mobile */
-        gap: 1.5rem; /* Adjusted gap */
-        margin-top: 1.5rem; /* Reduced margin */
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-top: 2rem;
     }
 
     .content-card {
         background: var(--glass-light); /* Light Glass */
         border-top: 3px solid var(--primary-accent);
         border-radius: 8px;
-        padding: 1.5rem; /* Adjusted padding */
+        padding: 2rem;
     }
 
     .content-card h3 {
-        font-size: 1.2rem; /* Adjusted for mobile */
-        margin-bottom: 0.8rem; /* Reduced margin */
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
         color: var(--text-on-light);
     }
 
@@ -181,19 +180,20 @@
     /* Footer */
     footer {
       background: var(--glass-light); /* Light Glass */
-      padding: 2rem 1rem; /* Reduced padding */
+      padding: 3rem 4rem;
       text-align: center;
       font-family: 'Lora', serif;
       font-size: 0.9rem;
       color: var(--text-on-light);
       border-top: 1px solid var(--neutral-divider);
-      margin-top: 3rem; /* Reduced margin */
+      margin-top: 6rem;
     }
 
     footer .footer-content {
       display: flex;
-      flex-direction: column; /* Stack columns on mobile */
+      justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
       gap: 2rem;
     }
 
@@ -234,139 +234,21 @@
       border: 1px solid var(--neutral-divider);
       border-radius: 4px;
       color: var(--text-on-light);
-      width: 100%; /* Full width on mobile */
-      margin-bottom: 0.5rem; /* Add space below input */
     }
 
     footer .newsletter button {
-      margin-left: 0; /* Remove left margin on mobile */
+      margin-left: 0.5rem;
       padding: 0.5rem 1rem;
       background: var(--primary-accent);
       color: var(--paper-bg);
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      width: 100%; /* Full width on mobile */
     }
 
     footer .copyright {
       margin-top: 2rem;
       font-size: 0.85rem;
-    }
-
-    /* Mobile Navigation Styles */
-    .nav-links {
-      display: none; /* Hidden by default on mobile */
-      flex-direction: column;
-      position: absolute;
-      top: 80px; /* Below header */
-      left: 0;
-      width: 100%;
-      background: var(--glass-light);
-      padding: 1rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-links.active {
-      display: flex; /* Show when active */
-    }
-
-    .nav-links a {
-      padding: 0.75rem 1rem;
-      color: var(--text-on-light);
-      text-decoration: none;
-      border-bottom: 1px solid var(--neutral-divider);
-    }
-
-    .nav-links a:last-child {
-      border-bottom: none;
-    }
-
-    /* Hamburger Menu Button */
-    .menu-toggle {
-      display: block; /* Show on mobile */
-      background: none;
-      border: none;
-      color: var(--text-on-light);
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 0.5rem;
-    }
-
-    /* Desktop Navigation (Hidden on Mobile) */
-    .desktop-nav {
-      display: none; /* Hidden on mobile */
-    }
-
-    /* Media Query for Desktop */
-    @media (min-width: 768px) {
-      header {
-        padding: 0 4rem; /* Restore desktop padding */
-      }
-
-      .hero {
-        padding: 0 8rem; /* Restore desktop padding */
-      }
-
-      .hero h1 {
-        font-size: 3.5rem; /* Desktop size */
-      }
-
-      .hero .tagline {
-        font-size: 1.4rem; /* Desktop size */
-      }
-
-      .content-section {
-        padding: 5rem 8rem; /* Restore desktop padding */
-      }
-
-      .content-section h2 {
-        font-size: 2rem; /* Desktop size */
-      }
-
-      .content-grid {
-        grid-template-columns: repeat(3, 1fr); /* Three columns on desktop */
-        gap: 2rem; /* Restore desktop gap */
-        margin-top: 2rem; /* Restore desktop margin */
-      }
-
-      footer {
-        padding: 3rem 4rem; /* Restore desktop padding */
-        margin-top: 6rem; /* Restore desktop margin */
-      }
-
-      footer .footer-content {
-        flex-direction: row; /* Row layout on desktop */
-        justify-content: space-between;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        gap: 2rem;
-      }
-
-      .col-md-3, .col-md-2 {
-        flex: 0 0 25%; /* Restore desktop flex values */
-        max-width: 25%; /* Restore desktop max-width */
-      }
-
-      /* Desktop Navigation */
-      .desktop-nav {
-        display: flex; /* Show on desktop */
-        gap: 1.5rem;
-      }
-
-      .desktop-nav a {
-        color: var(--text-on-light);
-        text-decoration: none;
-      }
-
-      /* Hide mobile menu elements on desktop */
-      .menu-toggle {
-        display: none; /* Hide on desktop */
-      }
-
-      .nav-links {
-        display: none !important; /* Force hide on desktop */
-      }
     }
   </style>
 </head>
@@ -376,34 +258,23 @@
   <div id="particles-js"></div>
 
   <!-- Header -->
-  <header class="glass">
-    <nav style="display: flex; align-items: center; justify-content: space-between; height: 60px; width: 100%;">
-      <div class="logo" style="font-size: 1.5rem; font-weight: 700; color: var(--primary-accent);">ELVARIENTE</div>
-      
-      <!-- Desktop Navigation -->
-      <div class="desktop-nav">
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/services/">Services</a>
-        <a href="/case-studies/">Case Studies</a>
-        <a href="/lab/">Lab</a>
-        <a href="/contact/">Contact</a>
-      </div>
-      
-      <!-- Mobile Menu Toggle -->
-      <button class="menu-toggle">&#9776;</button>
-    </nav>
-    
-    <!-- Mobile Navigation Links -->
-    <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/about/">About</a>
-      <a href="/services/">Services</a>
-      <a href="/case-studies/">Case Studies</a>
-      <a href="/lab/">Lab</a>
-      <a href="/contact/">Contact</a>
-    </div>
-  </header>
+    <!-- Particles.js CDN (Place this in <head> if not already present) -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+   <!-- Header -->
+   <header class="glass">
+     <nav style="display: flex; align-items: center; justify-content: space-between; height: 60px; padding: 0 4rem; width: 100%;">
+       <div class="logo" style="font-size: 1.5rem; font-weight: 700; color: var(--primary-accent);">ELVARIENTE</div>
+       <div class="nav-links" style="display: flex; gap: 1.5rem;">
+         <a href="/" style="color: var(--text-on-light); text-decoration: none;">Home</a>
+         <a href="/about/" style="color: var(--text-on-light); text-decoration: none;">About</a>
+         <a href="/services/" style="color: var(--text-on-light); text-decoration: none;">Services</a>
+         <a href="/case-studies/" style="color: var(--text-on-light); text-decoration: none;">Case Studies</a>
+         <a href="/lab/" style="color: var(--text-on-light); text-decoration: none;">Lab</a>
+         <a href="/contact/" style="color: var(--text-on-light); text-decoration: none;">Contact</a>
+       </div>
+     </nav>
+   </header>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -475,62 +346,63 @@
   </section>
 
   <!-- Footer -->
-  <footer class="glass">
+     <!-- Footer -->
+  <footer class="glass" style="background: var(--glass-light); backdrop-filter: blur(6px); border-top: 1px solid var(--neutral-divider); padding: 3rem 2rem; margin-top: 6rem; position: relative; z-index: 10; color: var(--text-on-light); font-family: 'Lora', serif; font-size: 0.9rem;">
     <div class="container">
-      <div class="footer-content">
+      <div class="row" style="display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto;">
         <!-- Brand Column -->
-        <div class="col-md-3">
-          <div class="logo">ELVARIENTE</div>
-          <p>
+        <div class="col-md-3" style="flex: 0 0 25%; max-width: 25%;">
+          <div class="logo" style="font-size: 1.5rem; font-weight: 700; color: var(--primary-accent); margin-bottom: 1rem;">ELVARIENTE</div>
+          <p style="margin-bottom: 1rem;">
             The First-Mover Growth Architect. Deploying Tomorrow's Tech Today.
           </p>
         </div>
 
         <!-- Pages Column -->
-        <div class="col-md-2">
-          <h6 class="text-uppercase mb-4 font-weight-bold">Pages</h6>
+        <div class="col-md-2" style="flex: 0 0 16.666667%; max-width: 16.666667%;">
+          <h6 class="text-uppercase mb-4 font-weight-bold" style="font-family: 'Cormorant Garamond', serif; letter-spacing: 0.5px; margin-bottom: 1rem;">Pages</h6>
           <ul style="list-style-type: none; padding: 0;">
-            <li><a href="/" class="text-white">Home</a></li>
-            <li><a href="/about/" class="text-white">About</a></li>
-            <li><a href="/services/" class="text-white">Services</a></li>
-            <li><a href="/case-studies/" class="text-white">Case Studies</a></li>
-            <li><a href="/lab/" class="text-white">Lab</a></li>
+            <li><a href="/" class="text-white" style="color: var(--text-on-light) !important; text-decoration: none;">Home</a></li>
+            <li><a href="/about/" class="text-white" style="color: var(--text-on-light) !important; text-decoration: none;">About</a></li>
+            <li><a href="/services/" class="text-white" style="color: var(--text-on-light) !important; text-decoration: none;">Services</a></li>
+            <li><a href="/case-studies/" class="text-white" style="color: var(--text-on-light) !important; text-decoration: none;">Case Studies</a></li>
+            <li><a href="/lab/" class="text-white" style="color: var(--text-on-light) !important; text-decoration: none;">Lab</a></li>
           </ul>
         </div>
 
         <!-- Support & Alternatives Column -->
-        <div class="col-md-2">
-          <h6 class="text-uppercase mb-4 font-weight-bold">Support</h6>
+        <div class="col-md-2" style="flex: 0 0 16.666667%; max-width: 16.666667%;">
+          <h6 class="text-uppercase mb-4 font-weight-bold" style="font-family: 'Cormorant Garamond', serif; letter-spacing: 0.5px; margin-bottom: 1rem;">Support</h6>
           <ul style="list-style-type: none; padding: 0;">
-            <li><a href="../../privacy-policy/" class="text-white">Privacy Policy</a></li>
-            <li><a href="../../terms-of-service/" class="text-white">Terms of Service</a></li>
-            <li><a href="../../feedback/" class="text-white">Feedback</a></li>
+            <li><a href="../../privacy-policy/" class="text-white" style="color: var(--text-on-light) !important; text-decoration: none;">Privacy Policy</a></li>
+            <li><a href="../../terms-of-service/" class="text-white" style="color: var(--text-on-light) !important; text-decoration: none;">Terms of Service</a></li>
+            <li><a href="../../feedback/" class="text-white" style="color: var(--text-on-light) !important; text-decoration: none;">Feedback</a></li>
           </ul>
         </div>
 
         <!-- Contact Column -->
-        <div class="col-md-2">
-          <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
-          <p><a href="mailto:contact@elvariente.com" class="text-white">contact@elvariente.com</a></p>
-          <div class="social-icons" style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+        <div class="col-md-2" style="flex: 0 0 16.666667%; max-width: 16.666667%;">
+          <h6 class="text-uppercase mb-4 font-weight-bold" style="font-family: 'Cormorant Garamond', serif; letter-spacing: 0.5px; margin-bottom: 1rem;">Contact</h6>
+          <p style="margin-bottom: 0.5rem;"><a href="mailto:contact@elvariente.com" class="text-white" style="color: var(--text-on-light) !important; text-decoration: none;">contact@elvariente.com</a></p>
+          <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
             <!-- Real Social Media Logos -->
             <a href="https://www.linkedin.com/in/elvariente" target="_blank" rel="noopener">
-              <img src="logos/linkedin.svg" alt="LinkedIn" width="20" height="20">
+            <img src="logos/linkedin.svg" alt="LinkedIn" width="20" height="20">
             </a>
             <a href="https://twitter.com/elvariente" target="_blank" rel="noopener">
-              <img src="logos/twitter.svg" alt="Twitter" width="20" height="20">
+            <img src="logos/twitter.svg" alt="Twitter" width="20" height="20">
             </a>
             <a href="https://instagram.com/elvariente" target="_blank" rel="noopener">
-              <img src="logos/instagram.svg" alt="Instagram" width="20" height="20">
+            <img src="logos/instagram.svg" alt="GitHub" width="20" height="20">
             </a>
             <a href="https://tiktok.com/@elvariente" target="_blank" rel="noopener">
-              <img src="logos/tiktok.svg" alt="TikTok" width="20" height="20">
+            <img src="logos/tiktok.svg" alt="GitHub" width="20" height="20">
             </a>
             <a href="https://github.com/elvariente" target="_blank" rel="noopener">
-              <img src="logos/github.svg" alt="GitHub" width="20" height="20">
+            <img src="logos/github.svg" alt="GitHub" width="20" height="20">
             </a>
             <a href="https://www.facebook.com/elvariente" target="_blank" rel="noopener">
-              <img src="logos/facebook.svg" alt="Facebook" width="20" height="20">
+            <img src="logos/facebook.svg" alt="GitHub" width="20" height="20">
             </a>
           </div>
         </div>
@@ -580,11 +452,6 @@
       } else {
         nav.classList.remove("shrink");
       }
-    });
-
-    // Mobile Menu Toggle
-    document.querySelector('.menu-toggle').addEventListener('click', function() {
-      document.querySelector('.nav-links').classList.toggle('active');
     });
   </script>
 </body>
